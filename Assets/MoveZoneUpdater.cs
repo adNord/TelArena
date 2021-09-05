@@ -16,7 +16,7 @@ public class MoveZoneUpdater : MonoBehaviour
     private void Update() 
     {
         float jointDistance = soul.GetComponent<DistanceJoint2D>().distance; 
-        scaleChange = new Vector3(jointDistance + 0.2f, jointDistance + 0.2f, 0);
+        scaleChange = new Vector3(jointDistance + 0.33f, jointDistance + 0.33f, 0);
         sphere.transform.localScale = scaleChange;
     }
 }

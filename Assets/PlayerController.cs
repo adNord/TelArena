@@ -7,17 +7,19 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rigidBody;
+    
+    public ParticleSystem particles;
     public GameObject body;
-    float moveLimiter = 0.99f;
 
+    float moveLimiter = 0.99f;
     float horSpeed = 0.0f;
     float vertSpeed = 0.0f;
-
     public float maxSpeed = 7.0f;
     public float acceleration = 7.0f;
     public float deceleration = 7.0f;
+    
     public float fetchBodyCooldown = 5.0f;
-    public float timeStamp;
+    private float timeStamp;
 
     public Slider cdSlider;
 
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour
         {
             if(timeStamp <= Time.time)
             {
+                particles.Play();
                 CooldownUpdater();
                 timeStamp = Time.time + fetchBodyCooldown;
                 body.transform.position = rigidBody.transform.position;
